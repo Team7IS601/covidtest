@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>COVID-19 Symptom Checker</title>
+</head>
+
+<body>
+	
+	<form action='/symptoms' method='POST' id='submitform'>
+                <input type='text', placeholder='user id'  name='user_input'>
+                <button type="submit" class="btn btn-success">Submit</button>
+                <br><br>
+                <h2>Symptom Checklist</h2>
+                <h5>Check Any Box Which Applies to You</h5>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="check" value="1">I have been in contact with an infected person within the last 14 days.</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="check" value="2">Dry Cough</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="check" value="3">Headaches</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="check" value="4">Fever</label>
+                </div>
+                <div class="checkbox">
+                  <label><input type="checkbox" name="check" value="5">Rash</label>
+                </div>
+                <h5>Example of Text 1</h5>
+                <input type="text", placeholder='0'  name='text_entry_1'>
+                <br><br>
+                <h5>Example of Text 2</h5>
+                <input type="text", placeholder='500000'  name='text_entry_2'>
+              </form>
+
+	
+	
+</body>
+</html>
