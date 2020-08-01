@@ -18,7 +18,7 @@ def index():
 @app.route("/",methods=['POST'])
 def other1():
     symptoms = request.form.getlist('checkbox')
-    if len(symptoms) > 8:
+    if len(symptoms) < 8:
         flash('You do not meet the criteria for testing, have a nice day! Stay Healthy!')
         return redirect("/")
     else:
