@@ -8,3 +8,7 @@ from pymysql.cursors import DictCursor
 app = Flask(__name__)
 mysql = MySQL(cursorclass=DictCursor)
 app = Flask(__name__,template_folder='templates')
+
+@app.route("/")
+def index():
+    return render_template("index.html")
