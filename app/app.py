@@ -1,20 +1,10 @@
+from typing import List, Dict, Any, Tuple
+import simplejson as json
+from flask import Flask, request, Response, redirect
+from flask import render_template
+from flaskext.mysql import MySQL
+from pymysql.cursors import DictCursor
 
-
-
-
-
-@app.route('/')
-def index():
-    return render_template('symptoms.html')
-
-@app.route('/symptoms', methods=['POST'])
-def user_rec():
-    user_name = request.form.get('user_input')
-    min_time = request.form.get('min_time')
-    max_time = request.form.get('max_time')
-    players = request.form.getlist('check')
-    print(user_name, min_time, max_time, players)
-    return redirect('/')
-
-if __name__ == '__main__':
-    app.run(debug=True)
+app = Flask(__name__)
+mysql = MySQL(cursorclass=DictCursor)
+app = Flask(__name__,template_folder='templates')
