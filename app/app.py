@@ -9,6 +9,7 @@ from flask import Flask, render_template, redirect, request,flash
 app = Flask(__name__)
 mysql = MySQL(cursorclass=DictCursor)
 app = Flask(__name__,template_folder='templates')
+app.secret_key = b'_5#y2L"F4Q8fdsfxec]/'
 
 @app.route("/")
 def index():
