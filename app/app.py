@@ -5,18 +5,29 @@ from flask import render_template
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
 from flask import Flask, render_template, redirect, request,flash
+from flask import Flask,render_template,flash, redirect,url_for,session,logging,request
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
 mysql = MySQL(cursorclass=DictCursor)
 app = Flask(__name__,template_folder='templates')
 app.secret_key = b'_5#y2L"F4Q8fdsfxec]/'
+db = SQLAlchemy(app)
 
-app.config['MYSQL_DATABASE_HOST'] = 'db'
+app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_PORT'] = 3306
+app.config['MYSQL_DATABASE_USER'] = 'root2'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'root2'
+app.config['MYSQL_DATABASE_PORT'] = 32000
 app.config['MYSQL_DATABASE_DB'] = 'userData'
 mysql.init_app(app)
+
+class user(db.Model):
+    username = db.Column(db.String(80), primary_key=True)
+    emailaddress = db.Column(db.String(120))
+    password = db.Column(db.String(80))
 
 
 ## --------------------- ADAM BEGIN - Register ---------------- ##
@@ -65,4 +76,5 @@ def other1():
 
 
 if __name__ == '__main__':
+    db.create_all()
     app.run(host='0.0.0.0', debug=True)

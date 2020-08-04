@@ -2,7 +2,7 @@ version: "2"
 services:
   app:
     build: ./app
-    container_name: "Flask_App99"
+    container_name: "Flask_App998"
     depends_on:
       - db
     ports:
@@ -10,10 +10,11 @@ services:
 
   db:
     image: mysql:5.7
-    container_name: "MySQL_Database99"
+    container_name: "MySQL_Database998"
     ports:
       - "32000:3306"
     environment:
       MYSQL_ROOT_PASSWORD: fidelio
     volumes:
-      - ./db:/docker-entrypoint-initdb.d/:ro
+      - ./db:/docker-entrypoint-initdb.d/init.sql:ro
+
