@@ -2,3 +2,8 @@ Flask
 mysql-connector
 simplejson
 flask-mysql
+flask_bootstrap
+flask-bootstrap
+flask_wtf
+flask_sqlalchemy
+flask_login
