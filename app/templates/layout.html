@@ -16,6 +16,7 @@
 <!-- As a heading -->
 <a class="navbar-brand" href="/">{% if user %}{{ user.username }}'s Homepage{% else %}
     <title>Welcome to our Homepage</title>
+    {% endif %}</a>
     <button aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler" data-target="#navbarNavDropdown" data-toggle="collapse" type="button">
         <span class="navbar-toggler-icon"></span>
     </button>

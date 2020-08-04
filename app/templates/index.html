@@ -1,5 +1,3 @@
-{% extends "layout.html" %}
-{% block content %}
 
 <html>
     <head>
@@ -13,30 +11,29 @@
                     {{ message }}
                 {% endfor %}
             {% endif %}
-        {% endwith %}        
+        {% endwith %}
           <div class="check">
-			  
+
 			  List of symptoms, check all which apply
             <form action="/" method="POST">
-                <input type="checkbox" id="checkbox" name="checkbox" value="1" checked>Fever or chills<br>            
+                <input type="checkbox" id="checkbox" name="checkbox" value="1" checked>Fever or chills<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="2" checked>Cough<br>
-                <input type="checkbox" id="checkbox" name="checkbox" value="3" checked>Shortness of breath or difficulty breathing<br>            
+                <input type="checkbox" id="checkbox" name="checkbox" value="3" checked>Shortness of breath or difficulty breathing<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="4"checked>Fatigue<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="5" checked>Muscle or body aches<br>
-                <input type="checkbox" id="checkbox" name="checkbox" value="6" checked>Headache<br>            
+                <input type="checkbox" id="checkbox" name="checkbox" value="6" checked>Headache<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="7" checked>Sore throat<br>
-                <input type="checkbox" id="checkbox" name="checkbox" value="8" checked>Congestion or runny nose<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="9" checked>This is a CheckBox 9<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="10" checked>Nausea or vomiting<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="11" checked>Diarrhea<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="12" checked>Trouble breathing<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="13"checked>Persistent pain or pressure in the chest<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="14" checked>New confusion<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="15" checked>Inability to wake or stay awake<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="16" checked>Bluish lips or face<br>            
+                <input type="checkbox" id="checkbox" name="checkbox" value="8" checked>Congestion or runny nose<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="9" checked>This is a CheckBox 9<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="10" checked>Nausea or vomiting<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="11" checked>Diarrhea<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="12" checked>Trouble breathing<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="13"checked>Persistent pain or pressure in the chest<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="14" checked>New confusion<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="15" checked>Inability to wake or stay awake<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="16" checked>Bluish lips or face<br>
                 <input type="submit" id = "submit" value="Submit">
               </form>
-          </div>        
+          </div>
     </body>
 </html>
-{% endblock %}
