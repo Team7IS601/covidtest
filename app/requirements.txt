@@ -7,3 +7,9 @@ flask-bootstrap
 flask_wtf
 flask_sqlalchemy
 flask_login
+flask_socketio
+httplib2
+apiclient
+oauth2client
+python-dateutil
+rfc3339

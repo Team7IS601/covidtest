@@ -1,10 +1,8 @@
+#!/usr/local/bin/python
 from typing import List, Dict, Any, Tuple
 import simplejson as json
-from flask import Flask, request, Response, redirect
-from flask import render_template
 from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
-from flask import Flask, render_template, redirect, request,flash
 from flask import Flask,render_template,flash, redirect,url_for,session,logging,request
 from flask_sqlalchemy import SQLAlchemy
 
@@ -18,8 +16,6 @@ db = SQLAlchemy(app)
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_USER'] = 'root2'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'root2'
 app.config['MYSQL_DATABASE_PORT'] = 32000
 app.config['MYSQL_DATABASE_DB'] = 'userData'
 mysql.init_app(app)

@@ -6,7 +6,7 @@ WORKDIR /app
 
 COPY requirements.txt /app
 RUN pip install -r requirements.txt
-
+RUN pip install --upgrade google-api-python-client python-dateutil
 ADD . /app
 COPY . /app
 
