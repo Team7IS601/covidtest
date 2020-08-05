@@ -9,7 +9,10 @@ from flask_sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
 mysql = MySQL(cursorclass=DictCursor)
-app = Flask(__name__,template_folder='templates')
+app = Flask(__name__,
+            template_folder='templates',
+            static_url_path='',
+            static_folder='static',)
 app.secret_key = b'_5#y2L"F4Q8fdsfxec]/'
 db = SQLAlchemy(app)
 

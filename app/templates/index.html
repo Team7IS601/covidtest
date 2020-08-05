@@ -1,38 +1,185 @@
-<html>
-    <head>
-        <title>WebPage</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    </head>
-    <body>
-        {% with messages = get_flashed_messages() %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Business Frontpage - Start Bootstrap Template</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="css/business-frontpage.css" rel="stylesheet">
+      <link href="{{ url_for('static', filename='business-frontpage.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#">New Jersey Institute of Technology</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/Calendar">Calendart</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <header class="bg-primary py-5 mb-5">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center">
+        <div class="col-lg-12">
+          <h1 class="display-4 text-white mt-5 mb-2">COVID-19 Symptom Checker</h1>
+          <p class="lead mb-5 text-white-50">Using the form below, please check off all of the symptoms you are currently experiencing.&nbsp; If you meet the criteria for a test, you will be taken to the registration page when you hit submit.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-md-8 mb-5">
+        <h2>Symptom Checker</h2>
+        <hr>
+		   {% with messages = get_flashed_messages() %}
             {% if messages %}
                 {% for message in messages %}
                     {{ message }}
                 {% endfor %}
             {% endif %}
-        {% endwith %}        
-          <div class="check">
-			  
-			  List of symptoms, check all which apply
-            <form action="/" method="POST">
-                <input type="checkbox" id="checkbox" name="checkbox" value="1" checked>Fever or chills<br>            
+        {% endwith %}
+
+		   <div class="check"> <form action="/" method="POST">
+                <input type="checkbox" id="checkbox" name="checkbox" value="1" checked>Fever or chills<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="2" checked>Cough<br>
-                <input type="checkbox" id="checkbox" name="checkbox" value="3" checked>Shortness of breath or difficulty breathing<br>            
+                <input type="checkbox" id="checkbox" name="checkbox" value="3" checked>Shortness of breath or difficulty breathing<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="4"checked>Fatigue<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="5" checked>Muscle or body aches<br>
-                <input type="checkbox" id="checkbox" name="checkbox" value="6" checked>Headache<br>            
+                <input type="checkbox" id="checkbox" name="checkbox" value="6" checked>Headache<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="7" checked>Sore throat<br>
-                <input type="checkbox" id="checkbox" name="checkbox" value="8" checked>Congestion or runny nose<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="9" checked>This is a CheckBox 9<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="10" checked>Nausea or vomiting<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="11" checked>Diarrhea<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="12" checked>Trouble breathing<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="13"checked>Persistent pain or pressure in the chest<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="14" checked>New confusion<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="15" checked>Inability to wake or stay awake<br>            
-                <input type="checkbox" id="checkbox" name="checkbox" value="16" checked>Bluish lips or face<br>            
+                <input type="checkbox" id="checkbox" name="checkbox" value="8" checked>Congestion or runny nose<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="9" checked>This is a CheckBox 9<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="10" checked>Nausea or vomiting<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="11" checked>Diarrhea<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="12" checked>Trouble breathing<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="13"checked>Persistent pain or pressure in the chest<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="14" checked>New confusion<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="15" checked>Inability to wake or stay awake<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="16" checked>Bluish lips or face<br>
                 <input type="submit" id = "submit" value="Submit">
               </form>
-          </div>        
-    </body>
+        <p>COVID-19 affects different people in different ways. Infected people have had a wide range of symptoms reported – from mild symptoms to severe illness.
+</p>
+        <p>Symptoms may appear 2-14 days after exposure to the virus.</p>
+        <a class="btn btn-primary btn-lg" href="/calendar">Schedule an Appointment</a>
+      </div>
+      <div class="col-md-4 mb-5">
+        <h2>Contact Us</h2>
+        <hr>
+        <address>
+          <strong>Adam Adamson,COVID-19 System Administrator<br>
+          </strong>
+          <br>
+          154 Summit Street&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+          Newark, NJ 07102-1982<br>
+        </address>
+        <address>
+          <abbr title="Phone">P:</abbr>
+          (123) 456-7890
+          <br>
+          <abbr title="Email">E:</abbr>
+          <a href="mailto:#">adamadamonson@njit.edu</a>
+        </address>
+      </div>
+    </div>
+    <!-- /.row -->
+
+    <div class="row">
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://www.njit.edu/sites/default/files/styles/16x9/public/DSC01029_0.JPG" alt="">
+          <div class="card-body">
+            <h4 class="card-title">NJIT Class of 2020</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://informatics.njit.edu/sites/informatics/files/styles/16x9/public/geo-1.jpg?itok=X_FmLrdh" alt="">
+          <div class="card-body">
+            <h4 class="card-title">NJIT Information Systems</h4>
+            <p class="card-text">Interested in becoming a programmer?  Learn the necessary skills from the world's top IT professors at NJIT!</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-4 mb-5">
+        <div class="card h-100">
+          <img class="card-img-top" src="https://www.njit.edu/sites/default/files/undergraduate_admissions.jpg" alt="">
+          <div class="card-body">
+            <h4 class="card-title">NJIT Class of 2020</h4>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
+          </div>
+          <div class="card-footer">
+            <a href="#" class="btn btn-primary">Find Out More!</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+
+  </div>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; IS601 Summer Group X 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
 </html>
