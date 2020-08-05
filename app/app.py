@@ -54,7 +54,8 @@ def login():
 
         login = user.query.filter_by(username=username, password=password).first()
         if login is not None:
-            return redirect(url_for("index"))
+            flash('Wrong Password, Try Again')
+            return redirect("/")
     return render_template("login.html")
 
 
@@ -73,7 +74,11 @@ def other1():
     else:
         return redirect('/register')
 
-
+@app.route("/logout")
+def logout():
+	"""Logout Form"""
+	session['logged_in'] = False
+	return redirect(url_for('home'))
 
 if __name__ == '__main__':
     db.create_all()
