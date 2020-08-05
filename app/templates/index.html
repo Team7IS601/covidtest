@@ -69,14 +69,20 @@
       <div class="col-md-8 mb-5">
         <h2>Symptom Checker</h2>
         <hr>
-		   {% with messages = get_flashed_messages() %}
+        {% with messages = get_flashed_messages() %}
             {% if messages %}
+             <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
                 {% for message in messages %}
                     {{ message }}
                 {% endfor %}
+             </div>
             {% endif %}
-        {% endwith %}
-
+        {% endwith %}        
+		  
+        <p>COVID-19 affects different people in different ways. Infected people have had a wide range of symptoms reported – from mild symptoms to severe illness.
+</p>
+        <p>Symptoms may appear 2-14 days after exposure to the virus.</p>
 		   <div class="check"> <form action="/" method="POST">
                 <input type="checkbox" id="checkbox" name="checkbox" value="1" checked>Fever or chills<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="2" checked>Cough<br>
@@ -94,12 +100,10 @@
                 <input type="checkbox" id="checkbox" name="checkbox" value="14" checked>New confusion<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="15" checked>Inability to wake or stay awake<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="16" checked>Bluish lips or face<br>
-                <input type="submit" id = "submit" value="Submit">
+                <br><input class="btn btn-primary btn-lg" type="submit" id = "submit" value="Submit">
 			   </form></div>
-        <p>COVID-19 affects different people in different ways. Infected people have had a wide range of symptoms reported – from mild symptoms to severe illness.
-</p>
-        <p>Symptoms may appear 2-14 days after exposure to the virus.</p>
-        <a class="btn btn-primary btn-lg" href="/calendar">Schedule an Appointment</a>
+<br>
+      
       </div>
       <div class="col-md-4 mb-5">
         <h2>Contact Us</h2>
