@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>NJIT Student Self Check for COVID-19</title>
+  <title>NJIT COVID-19 Student Symptom Checker</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
@@ -24,7 +24,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">New Jersey Institute of Technology</a>
+      <a class="navbar-brand" href="https://www.njit.edu">New Jersey Institute of Technology</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -66,7 +66,7 @@
 
     <div class="row">
       <div class="col-md-8 mb-5">
-        <h2>Symptom Checker</h2>
+        <h2>Symptoms</h2>
         <hr>
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -165,7 +165,7 @@
             <p class="card-text">NJIT plans to host classes on campus and have students in residence for Fall 2020. Click here to learn more.</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+            <a href="https://www.njit.edu/pandemicrecovery/" class="btn btn-primary">Find Out More!</a>
           </div>
         </div>
       </div>
@@ -177,19 +177,19 @@
             <p class="card-text">Helpful links to keep you informed.</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+            <a href="https://www.njit.edu/pandemicrecovery/resources" class="btn btn-primary">Find Out More!</a>
           </div>
         </div>
       </div>
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <img class="card-img-top" src="{{ url_for('static', filename='img/njit3.jpg') }}" alt="">
+          <img class="card-img-top" src="{{ url_for('static', filename='img/njit4.jpg') }}" alt="">
           <div class="card-body">
-            <h4 class="card-title">NJIT Class of 2020</h4>
-            <p class="card-text">Click here to learn about what NJIT is doing to keep its students safe.</p>
+            <h4 class="card-title">CDC Updates</h4>
+            <p class="card-text">Click here to learn what the CDC knows about the virus.</p>
           </div>
           <div class="card-footer">
-            <a href="#" class="btn btn-primary">Find Out More!</a>
+            <a href="https://www.cdc.gov/coronavirus/2019-nCoV/index.html" class="btn btn-primary">Find Out More!</a>
           </div>
         </div>
       </div>
