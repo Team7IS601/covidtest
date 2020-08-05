@@ -78,7 +78,7 @@ def other1():
 def logout():
 	"""Logout Form"""
 	session['logged_in'] = False
-	return redirect(url_for('home'))
+	return redirect(url_for('/'))
 
 if __name__ == '__main__':
     db.create_all()

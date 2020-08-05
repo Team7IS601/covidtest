@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+
+
+
 <body>
 <form method="POST">
                     <div class="form-group">
@@ -16,5 +19,14 @@
                     </div>
                     <button type="submit" class="btn form-control btn-default">Login</button>
                 </form>
+
+{% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    {{ message }}
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
 </body>
 </html>
