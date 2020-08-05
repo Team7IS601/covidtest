@@ -38,7 +38,7 @@ def register():
         emailaddress = request.form['emailaddress']
         password = request.form['password']
 
-        register = user(username = username, email = emailaddress, password = password)
+        register = user(username = username, emailaddress = emailaddress, password = password)
         db.session.add(register)
         db.session.commit()
 
