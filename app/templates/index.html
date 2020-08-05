@@ -12,11 +12,10 @@
 
   <!-- Bootstrap core CSS -->
   <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/business-frontpage.css" rel="stylesheet">
-      <link href="{{ url_for('static', filename='business-frontpage.css') }}" rel="stylesheet">
+
+  <link href="{{ url_for('static', filename='business-frontpage.css') }}" rel="stylesheet">
 
 </head>
 
@@ -178,8 +177,9 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 </body>
 
