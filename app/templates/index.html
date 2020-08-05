@@ -8,16 +8,14 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>NJIT Student COIVD 19 Symptom Checker</title>
-
+  <title>NJIT Student Self Check for COVID-19</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/business-frontpage.css" rel="stylesheet">
-      <link href="{{ url_for('static', filename='business-frontpage.css') }}" rel="stylesheet">
+
+  <link href="{{ url_for('static', filename='business-frontpage.css') }}" rel="stylesheet">
 
 </head>
 
@@ -33,7 +31,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item active">
-            <a class="nav-link" href="#">Home
+            <a class="nav-link" href="/">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
@@ -41,7 +39,7 @@
             <a class="nav-link" href="/login">Login</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="/Register">Register</a>
+            <a class="nav-link" href="/register">Register</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="/Calendar">Calendar</a>
@@ -70,86 +68,101 @@
       <div class="col-md-8 mb-5">
         <h2>Symptom Checker</h2>
         <hr>
-		   {% with messages = get_flashed_messages() %}
+        {% with messages = get_flashed_messages() %}
             {% if messages %}
+             <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
                 {% for message in messages %}
                     {{ message }}
                 {% endfor %}
+             </div>
             {% endif %}
         {% endwith %}
 
+        <p>COVID-19 affects different people in different ways. Infected people have had a wide range of symptoms reported – from mild symptoms to severe illness.
+</p>
+        <p>Symptoms may appear 2-14 days after exposure to the virus.</p>
 		   <div class="check"> <form action="/" method="POST">
                 <input type="checkbox" id="checkbox" name="checkbox" value="1" unchecked>Fever or chills<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="2" unchecked>Cough<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="3" unchecked>Shortness of breath or difficulty breathing<br>
-                <input type="checkbox" id="checkbox" name="checkbox" value="4"unchecked>Fatigue<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="4" unchecked>Fatigue<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="5" unchecked>Muscle or body aches<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="6" unchecked>Headache<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="7" unchecked>Sore throat<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="8" unchecked>Congestion or runny nose<br>
-                <input type="checkbox" id="checkbox" name="checkbox" value="9" unchecked>This is a CheckBox 9<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="9" unchecked>Hallucinations<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="10" unchecked>Nausea or vomiting<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="11" unchecked>Diarrhea<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="12" unchecked>Trouble breathing<br>
-                <input type="checkbox" id="checkbox" name="checkbox" value="13"unchecked>Persistent pain or pressure in the chest<br>
+                <input type="checkbox" id="checkbox" name="checkbox" value="13" unchecked>Persistent pain or pressure in the chest<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="14" unchecked>New confusion<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="15" unchecked>Inability to wake or stay awake<br>
                 <input type="checkbox" id="checkbox" name="checkbox" value="16" unchecked>Bluish lips or face<br>
-                <input type="submit" id = "submit" value="Submit">
-              </form>
-        <p>COVID-19 affects different people in different ways. Infected people have had a wide range of symptoms reported – from mild symptoms to severe illness.
-</p>
-        <p>Symptoms may appear 2-14 days after exposure to the virus.</p>
-        <a class="btn btn-primary btn-lg" href="/calendar">Schedule an Appointment</a>
+                <br><input class="btn btn-primary btn-lg" type="submit" id = "submit" value="Submit">
+			   </form></div>
+<br>
+
       </div>
       <div class="col-md-4 mb-5">
         <h2>Contact Us</h2>
         <hr>
         <address>
-          <strong>Adam Adamson,COVID-19 System Administrator<br>
+          <strong>Adam Adamson, COVID-19 System Administrator<br>
           </strong>
           <br>
-          154 Summit Street&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+          323 Dr Martin Luther King Jr Blvd<br>
           Newark, NJ 07102-1982<br>
         </address>
         <address>
           <abbr title="Phone">P:</abbr>
-          (123) 456-7890
+          (973) 456-7890 ext 8388
           <br>
           <abbr title="Email">E:</abbr>
           <a href="mailto:#">aa748@njit.edu</a>
         </address>
-      </div>
-
-          <div class="col-md-5 mb-6">
-        <h2>Contact Us</h2>
-        <hr>
-        <address>
-          <strong>Adam Adamson,COVID-19 System Administrator<br>
+		  
+		<address>
+          <strong>Ryan Melnik, COVID-19 UX Designer<br>
           </strong>
           <br>
-          154 Summit Street&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<br>
+          323 Dr Martin Luther King Jr Blvd<br>
           Newark, NJ 07102-1982<br>
         </address>
         <address>
           <abbr title="Phone">P:</abbr>
-          (123) 456-7890
+          (973) 456-7890 ext 2993
           <br>
           <abbr title="Email">E:</abbr>
-          <a href="mailto:#">aa748@njit.edu</a>
+          <a href="mailto:#">rsm73@njit.edu</a>
         </address>
+		
+        <address>
+          <strong>Michael Maddaloni, Public Relations Manager<br>
+          </strong>
+          <br>
+          323 Dr Martin Luther King Jr Blvd<br>
+          Newark, NJ 07102-1982<br>
+        </address>
+        <address>
+          <abbr title="Phone">P:</abbr>
+          (973) 456-7890 ext 8843
+          <br>
+          <abbr title="Email">E:</abbr>
+          <a href="mailto:#">mam326@njit.edu</a>
+        </address>		  
+		  
       </div>
-
     </div>
     <!-- /.row -->
 
     <div class="row">
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <img class="card-img-top" src="https://www.njit.edu/pandemicrecovery/sites/njit.edu.pandemicrecovery/files/styles/16x9/public/NJITFallSun1.jpg?itok=y4KYmi4-" alt="">
+          <img class="card-img-top" src="{{ url_for('static', filename='img/njit1.jpg') }}" alt="">
           <div class="card-body">
             <h4 class="card-title">NJIT Pandemic Recovery Plan</h4>
-            <p class="card-text">NJIT plans to host classes on campus and have students in residence for Fall 2020. Click here to learn more. </p>
+            <p class="card-text">NJIT plans to host classes on campus and have students in residence for Fall 2020. Click here to learn more.</p>
           </div>
           <div class="card-footer">
             <a href="#" class="btn btn-primary">Find Out More!</a>
@@ -158,7 +171,7 @@
       </div>
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <img class="card-img-top" src="https://informatics.njit.edu/sites/informatics/files/styles/16x9/public/geo-1.jpg?itok=X_FmLrdh" alt="">
+          <img class="card-img-top" src="{{ url_for('static', filename='img/njit2.jpg') }}" alt="">
           <div class="card-body">
             <h4 class="card-title">NJIT Resources</h4>
             <p class="card-text">Helpful links to keep you informed.</p>
@@ -170,9 +183,9 @@
       </div>
       <div class="col-md-4 mb-5">
         <div class="card h-100">
-          <img class="card-img-top" src="https://www.njit.edu/sites/default/files/undergraduate_admissions.jpg" alt="">
+          <img class="card-img-top" src="{{ url_for('static', filename='img/njit3.jpg') }}" alt="">
           <div class="card-body">
-            <h4 class="card-title">NJIT Covid Testing Information</h4>
+            <h4 class="card-title">NJIT Class of 2020</h4>
             <p class="card-text">Click here to learn about what NJIT is doing to keep its students safe.</p>
           </div>
           <div class="card-footer">
@@ -195,8 +208,9 @@
   </footer>
 
   <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 
 </body>
 
