@@ -9,15 +9,15 @@
     justify-content: center;
     flex-flow: row wrap;
   }
-  .header {
+  .calendar{
     width: 100%;
     text-align: center;
   }
-  .container {
+  .container2 {
     width: 30%;
     margin: 0 auto;
   }
-  .container input {
+  .container2 input {
     width: 100%;
     clear: both;
   }
