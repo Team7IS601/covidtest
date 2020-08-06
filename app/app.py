@@ -24,10 +24,10 @@ app.secret_key = b'_5#y2L"F4Q8fdsfxec]/'
 db = SQLAlchemy(app)
 socketio = SocketIO(app)
 
-app.config['MYSQL_DATABASE_HOST'] = 'localhost'
+app.config['MYSQL_DATABASE_HOST'] = 'db'
 app.config['MYSQL_DATABASE_USER'] = 'root'
 app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
-app.config['MYSQL_DATABASE_PORT'] = 32000
+app.config['MYSQL_DATABASE_PORT'] = 3306
 app.config['MYSQL_DATABASE_DB'] = 'userData'
 mysql.init_app(app)
 
@@ -132,12 +132,12 @@ def register():
         username = request.form['username']
         emailaddress = request.form['emailaddress']
         password = request.form['password']
+        inputData = (username, emailaddress, password)
+        sql_insert_query = "INSERT INTO tbluserDataImport (username,emailaddress,password) VALUES (%s,%s,%s)"
+        cursor = mysql.get_db().cursor()
+        cursor.execute(sql_insert_query, inputData)
 
-        register = user(username = username, emailaddress = emailaddress, password = password)
-        db.session.add(register)
-        db.session.commit()
-
-        return redirect(url_for("login"))
+        return redirect(url_for("Calendar"))
     return render_template("register.html")
 
 
@@ -146,9 +146,10 @@ def login():
     if request.method == "POST":
         username = request.form["username"]
         password = request.form["password"]
-        cursor = mysql.get_db().cursor()
         inputData = (request.form.get('username'), request.form.get('emailaddress'), request.form.get('password'))
         sql_insert_query = """INSERT INTO tbluserDataImport (username,emailaddress,password) VALUES (%s,%s,%s) """
+
+        cursor = mysql.get_db().cursor()
         cursor.execute(sql_insert_query, inputData)
         login = user.query.filter_by(username=username, password=password).first()
         if login is not None:
