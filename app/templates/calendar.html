@@ -2,74 +2,8 @@
 <html lang="en">
 
 <head>
- <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <style type="text/css">
-/*
-  .box {
-    height: 100%;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    text-align: center;
-    justify-content: center;
-    flex-flow: row wrap;
-  }
-  .header {
-    width: 100%;
-    text-align: center;
-  }
-  .container {
-    width: 30%;
-    margin: 0 auto;
-  }
-  .container input {
-    width: 100%;
-    clear: both;
-  }
-  .button {
-    display: inline-block;
-    border-radius: 4px;
-    background-color: #2199E2;
-    border: none;
-    color: #FFFFFF;
-    text-align: center;
-    font-size: 28px;
-    padding: 20px;
-    width: 200px;
-    transition: all 0.5s;
-    cursor: pointer;
-    margin: 5px;
-  }
-
-  .button span {
-    cursor: pointer;
-    display: inline-block;
-    position: relative;
-
-    transition: 0.5s;
-
-  }
-
-  .button span:after {
-    content: '\00bb';
-    position: absolute;
-    opacity: 0;
-    top: 0;
-    right: -20px;
-    transition: 0.5s;
-  }
-
-  .button:hover span {
-    padding-right: 25px;
-  }
-
-  .button:hover span:after {
-    opacity: 1;
-    right: 0;
-  }
-  </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -88,23 +22,7 @@
 </head>
 
 <body>
-<script>
-  // var socket = io.connect('https://' + document.domain + ':' + location.port)
-  var socket = io.connect(document.domain + ':' + location.port)
-  socket.on("test", function() {
-    console.log("test recieved")
-  })
-  socket.on("calendarReturn", function(data) {
-    $("#getCalendars").hide()
-    var dropdown = $("<select id='selectCal'/>")
-    for (var i in data['data']) {
-      $('<option />', {value: data['data'][i].id, text: data['data'][i].name}).appendTo(dropdown);
-    }
-    dropdown.appendTo("#calendars")
-    $(".container").show()
-  })
 
-  </script>
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
@@ -139,7 +57,7 @@
       <div class="row h-100 align-items-center">
         <div class="col-lg-12">
           <h1 class="display-4 text-white mt-5 mb-2">COVID-19 Test Scheduler</h1>
-          <p class="lead mb-5 text-white-50">Please enter a date and time you would like to come in for your test.  Please remember to wear a mask and maintain social distancing.</p>
+          <p class="lead mb-5 text-white-50">Please enter a date and time you would like to come in for your test.  Please remember </p>
         </div>
       </div>
     </div>
@@ -153,7 +71,27 @@
         <h2>Register To Make an Appointment</h2>
         <hr>     
 		  
-<div class="box">
+        <p>Please provide us with your name and email address. Create a memorable password to complete registration.
+</p>
+        
+		  <script>
+  // var socket = io.connect('https://' + document.domain + ':' + location.port)
+  var socket = io.connect(document.domain + ':' + location.port)
+  socket.on("test", function() {
+    console.log("test recieved")
+  })
+  socket.on("calendarReturn", function(data) {
+    $("#getCalendars").hide()
+    var dropdown = $("<select id='selectCal'/>")
+    for (var i in data['data']) {
+      $('<option />', {value: data['data'][i].id, text: data['data'][i].name}).appendTo(dropdown);
+    }
+    dropdown.appendTo("#calendars")
+    $(".container").show()
+  })
+
+  </script>
+  <div class="box">
     <div class="header">
       <h1>Add Event to Google Calendar</h1>
     </div>
@@ -177,8 +115,33 @@
       <button class="button" id="submit" style="vertical-align:middle"><span>Submit</span></button>
 
     </div>
+  </div></div>
+<br>
+      
+	  </div></div>
+      <div class="col-md-4 mb-5">
+        
+      </div>
+    </div>
+     
+
   </div>
-  <script>
+  <!-- /.container -->
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Copyright &copy; IS601 Summer Group X 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+<script>
   //Hide container on page load
   $(".container").hide()
 
@@ -220,33 +183,6 @@
     }
   })
   </script>
-		
-		
-		</div>
-<br>
-      
-	  </div></div>
-      <div class="col-md-4 mb-5">
-        
-      </div>
-    </div>
-     
-
-  </div>
-  <!-- /.container -->
-
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; IS601 Summer Group X 2020</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
 </body>
 
 </html>
