@@ -4,25 +4,25 @@
 ## By Adam Adamson, Michael Maddaloni, and Ryan Melnick
 
 # Purpose
-This is an app which asks students to report any and all current symptoms they are experiencing.  If they are experiencin 8 or more symptoms they are directed to a registration form.  
+This is an app which asks students to report any and all current symptoms they are experiencing.  If they are experiencing 8 or more symptoms they are directed to a registration form.  
 
-# Tips and Notes
-xxxxxxxxxxxxxxxxxxxxxxxxx
+# Walkthrough - Feature 1
+## Step 1
+When a user loads the index file, they are presented with an array of checkboxes, 16 total.  
+[![Symptoms](screenshots/symptoms.png)]
 
-```
-Authorized Javascript Origins
-http://localhost:8080
+# Step 2
+If a user selects fewer than 8 checkboxes, they are presented with a message stating they do not need to continue.
+[![Symptoms2](screenshots/symptoms2.png)]
 
-Authorized redirect URIs
-http://localhost:8080/oauth2callback
-```
+# Step 3
+If a user selects 8 or more checkboxes they are automatically redirected to the registration page and are directed to submit their personal info.
+[![Symptoms3](screenshots/symptoms3.png)]
+[![Symptoms4](screenshots/symptoms4.png)]
 
-# Running
-Simply download the app, have the client_secrets.json file in the same directory as app.py, and type
-
-```
-$ python app.py
-```
+# Step 4
+The user will enter their information, and upon submit their information will be posted to the database.
+[![Symptoms5](screenshots/symptoms5.png)]
 
 # Technologies
 This project uses Python, Flask, SocketIO, rfc3339, HTML5, CSS3, and jQuery.
