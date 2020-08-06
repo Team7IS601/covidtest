@@ -39,5 +39,6 @@ Description: Calendar feature. On a separate page we will have an event schedula
 # Installation Instructions
 1. Set up Pycharm with link tutorial
 2. Set up Docker with link tutorial
-3. 
+3. Fork, Clone or Download repo
+4. Once you have all the files set up in Pycharm and you have a Docker set up, hit run and click on url in console. 
 
