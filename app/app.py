@@ -64,6 +64,67 @@ def oauth2callback():
     flask.session['credentials'] = credentials.to_json()
     return flask.redirect(flask.url_for('index'))
 
+#On event submission from client
+@socketio.on('eventDesc')
+def eventDesc(data):
+    print("INSIDE eventDesc!!!")
+    name = data['name']
+    sTime =  parser.parse(data['sTime'])
+    eTime =  parser.parse(data['eTime'])
+    cid = data['cid']
+    sConverted = rfc3339(sTime)
+    eConverted = rfc3339(eTime)
+    oauth(name, cid, sConverted, eConverted)
+
+#On getCalendars event from client. Gets the calendar names and their corresponding ID's
+@socketio.on("getCalendars")
+def getCalendars():
+    calendars = []
+    try:
+        credentials = client.OAuth2Credentials.from_json(flask.session['credentials'])
+    except credError:
+        print("did not assign credentials")
+    http_auth = credentials.authorize(httplib2.Http())
+    service = discovery.build('calendar', 'v3', http_auth)
+    page_token = None
+    while True:
+      calendar_list = service.calendarList().list(pageToken=page_token).execute()
+      for calendar_list_entry in calendar_list['items']:
+        calendars.append({"name": calendar_list_entry['summary'], "id": calendar_list_entry['id']})
+      page_token = calendar_list.get('nextPageToken')
+      if not page_token:
+        break
+    flask_socketio.emit("calendarReturn", {"data": calendars})
+
+#Function to add event into calendar selected
+def oauth(name, cid, sTime, eTime):
+    print(sTime)
+    print(eTime)
+    print(name)
+    print(cid)
+    try:
+        credentials = client.OAuth2Credentials.from_json(flask.session['credentials'])
+    except credError:
+        print("did not assign credentials")
+    http_auth = credentials.authorize(httplib2.Http())
+    service = discovery.build('calendar', 'v3', http_auth)
+    eventName = ""
+    event = {
+        'summary': name,
+        'start': {
+        'dateTime': sTime
+        },
+        'end': {
+        'dateTime': eTime
+        },
+        'iCalUID': 'originalUID'
+    }
+    imported_event = service.events().import_(calendarId=cid, body=event).execute()
+    print("Succesfully Imported Event")
+
+
+
+
 ## --------------------- ADAM BEGIN - Register ---------------- ##
 @app.route("/register", methods=["GET", "POST"])
 def register():
@@ -123,3 +184,4 @@ def logout():
 if __name__ == '__main__':
     db.create_all()
     app.run(host='0.0.0.0', debug=True)
+    app.secret_key = str(uuid.uuid4())
