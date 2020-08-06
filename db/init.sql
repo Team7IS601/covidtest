@@ -5,7 +5,7 @@ CREATE TABLE IF NOT EXISTS tbluserDataImport (
     `username` VARCHAR(40),
     `emailaddress` VARCHAR(40),
     `password` VARCHAR(40),
-    PRIMARY KEY (`username`)
+    PRIMARY KEY (`emailaddress`)
 );
 
 INSERT INTO tbluserDataImport (username, emailaddress, password) VALUES

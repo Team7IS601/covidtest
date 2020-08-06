@@ -51,9 +51,9 @@ def register(methods=["GET","POST"]):
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        username = request.form["username"]
+        emailaddress = request.form["emailaddress"]
         password = request.form["password"]
-        login = user.query.filter_by(username=username, password=password).first()
+        login = user.query.filter_by(emailaddress=emailaddress, password=password).first()
         if login is not None:
             flash('Wrong Password, Try Again')
             return redirect("/")
