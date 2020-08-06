@@ -5,7 +5,14 @@ from flaskext.mysql import MySQL
 from pymysql.cursors import DictCursor
 from flask import Flask,render_template,flash, redirect,url_for,session,logging,request
 from flask_sqlalchemy import SQLAlchemy
-
+import sys, json, flask, flask_socketio, httplib2, uuid
+from flask import Response, request
+from flask_socketio import SocketIO
+from apiclient import discovery
+from oauth2client import client
+from googleapiclient import sample_tools
+from rfc3339 import rfc3339
+from dateutil import parser
 
 app = Flask(__name__)
 mysql = MySQL(cursorclass=DictCursor)
@@ -15,6 +22,7 @@ app = Flask(__name__,
             static_folder='static',)
 app.secret_key = b'_5#y2L"F4Q8fdsfxec]/'
 db = SQLAlchemy(app)
+socketio = SocketIO(app)
 
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 app.config['MYSQL_DATABASE_USER'] = 'root'
@@ -27,6 +35,19 @@ class user(db.Model):
     username = db.Column(db.String(80), primary_key=True)
     emailaddress = db.Column(db.String(120))
     password = db.Column(db.String(80))
+
+
+########## RYAN BEGIN ----- CALENDAR --------------- #########
+
+@app.route('/Calendar')
+def index():
+    if 'credentials' not in flask.session:
+      return flask.redirect(flask.url_for('oauth2callback'))
+    credentials = client.OAuth2Credentials.from_json(flask.session['credentials'])
+    if credentials.access_token_expired:
+        return flask.redirect(flask.url_for('oauth2callback'))
+    return flask.render_template('calendar.html')
+
 
 
 ## --------------------- ADAM BEGIN - Register ---------------- ##
