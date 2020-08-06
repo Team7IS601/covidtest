@@ -136,7 +136,7 @@ def register():
         cursor = mysql.get_db().cursor()
         cursor.execute(sql_insert_query, inputData)
         mysql.get_db().commit()
-        return redirect(url_for("login"))
+        return redirect(url_for("success"))
     return render_template("register.html")
 
 
@@ -162,6 +162,10 @@ def login():
 @app.route("/")
 def index():
     return render_template("index.html")
+
+@app.route("/success")
+def index():
+    return render_template("success.html")
 
 @app.route("/",methods=['POST'])
 def other1():
