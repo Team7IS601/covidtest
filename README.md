@@ -1,29 +1,38 @@
-# covidtest
+# "NJIT Student COVID 19 Symptom Checker Web" App
+Adam Adamson,  
+Michael Maddaloni,   
+Ryan Melink  
+Professor Williams
+IS 601 Web Systems Development
+Summer 2020
 
-# COVID19 Student Self Check and Appointment Scheduler :syringe:
-## By Adam Adamson, Michael Maddaloni, and Ryan Melink
+# Welcome to our app! Below you will find requirements and installation instructions to get started. 
 
-# Purpose
-This is an app which asks students to report any and all current symptoms they are experiencing.  If they are experiencing 8 or more symptoms they are directed to a registration form.  
+# Requirements:
+1. Docker
+2. Python IDE
+3. Some knowledge of GIT
 
-# Program Guide
-## Step 1
-When a user loads the index file, they are presented with an array of checkboxes, 16 total.  
-![Symptoms](screenshots/symptoms.png)
+# Here is a link to set up Docker
+https://runnable.com/docker/python/dockerize-your-python-application
 
-# Step 2
-If a user selects fewer than 8 checkboxes, they are presented with a message stating they do not need to continue.
-![Symptoms2](screenshots/symptoms2.png)
+# Here is a link to set up Pycharm
+https://www.jetbrains.com/pycharm/download/#section=windows
 
-# Step 3
-If a user selects 8 or more checkboxes they are automatically redirected to the registration page and are directed to submit their personal info.
-![Symptoms3](screenshots/symptoms3.png)
-![Symptoms4](screenshots/symptoms4.png)
+# Here is a link to integrate Docker, Python and Git
+https://www.youtube.com/watch?v=5zua74p6vjU&feature=youtu.be
 
-# Step 4
-The user will enter their information, and upon submit their information will be posted to the database.
-![Symptoms5](screenshots/symptoms5.png)
+# Feature 1: Symptoms Checklist
+Made by: Adam Adamson
+Description: A visitor will browse to a "symptom checker" page which essentially has a list of symptoms.  Based on the amount of check boxes they click, our application will determine whether or not they actually need to come in for a test.  If the value of checkboxes is greater than X, the application redirects them to the next feature.
 
-# Step 5
-If a user logs in successfully they will be taken to the calendar feature to find open times for appointment.
-![Symptoms5](screenshots/login.png)
+# Feature 2: Patient Onboarding
+Made by: Micahel Maddaloni
+Description: Patient onboarding. This will require personal data like a name, email address, etc., which will also be used to sign them up for the website.
+
+# Feature 3: Calendar
+Made by: Ryan Melink
+Description: Calendar feature. On a separate page we will have an event schedular for selecting the time slots that are available to the user.  This will be both an independent feature (i.e., any visitor can browse to it and check for open times) as well as being tied into the onboarding feature.
+
+# Installation Instructions
+1. 
