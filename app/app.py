@@ -18,7 +18,7 @@ db = SQLAlchemy(app)
 
 app.config['MYSQL_DATABASE_HOST'] = 'localhost'
 app.config['MYSQL_DATABASE_USER'] = 'root'
-app.config['MYSQL_DATABASE_PASSWORD'] = 'fidelio'
+app.config['MYSQL_DATABASE_PASSWORD'] = 'root'
 app.config['MYSQL_DATABASE_PORT'] = 32000
 app.config['MYSQL_DATABASE_DB'] = 'userData'
 mysql.init_app(app)
@@ -31,15 +31,12 @@ class user(db.Model):
 
 ## --------------------- ADAM BEGIN - Register ---------------- ##
 @app.route("/register", methods=["GET", "POST"])
-def register(methods=["GET","POST"]):
+def register():
     if request.method == "POST":
         username = request.form['username']
         emailaddress = request.form['emailaddress']
         password = request.form['password']
-        cursor = mysql.get_db().cursor()
-        inputData = (request.form.get('username'), request.form.get('emailaddress'), request.form.get('password'))
-        sql_insert_query = """INSERT INTO tbluserDataImport (username,emailaddress,password) VALUES (%s,%s,%s) """
-        cursor.execute(sql_insert_query, inputData)
+
         register = user(username = username, emailaddress = emailaddress, password = password)
         db.session.add(register)
         db.session.commit()
@@ -51,9 +48,13 @@ def register(methods=["GET","POST"]):
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if request.method == "POST":
-        emailaddress = request.form["emailaddress"]
+        username = request.form["username"]
         password = request.form["password"]
-        login = user.query.filter_by(emailaddress=emailaddress, password=password).first()
+        cursor = mysql.get_db().cursor()
+        inputData = (request.form.get('username'), request.form.get('emailaddress'), request.form.get('password'))
+        sql_insert_query = """INSERT INTO tbluserDataImport (username,emailaddress,password) VALUES (%s,%s,%s) """
+        cursor.execute(sql_insert_query, inputData)
+        login = user.query.filter_by(username=username, password=password).first()
         if login is not None:
             flash('Wrong Password, Try Again')
             return redirect("/")
