@@ -40,7 +40,7 @@ class user(db.Model):
 ########## RYAN BEGIN ----- CALENDAR --------------- #########
 
 @app.route('/Calendar')
-def index():
+def calendar():
     if 'credentials' not in flask.session:
       return flask.redirect(flask.url_for('oauth2callback'))
     credentials = client.OAuth2Credentials.from_json(flask.session['credentials'])
