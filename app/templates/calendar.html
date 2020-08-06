@@ -17,6 +17,7 @@
 
   <!-- Custom styles for this template -->
       <link href="{{ url_for('static', filename='business-frontpage.css') }}" rel="stylesheet">
+	<link href="{{ url_for('static', filename='calendar.css') }}" rel="stylesheet">
 
 </head>
 
@@ -84,22 +85,19 @@
   </script>
   <div class="box">
     <div class="header">
-      <h1>Add Event to Google Calendar</h1>
+      <h1>Enter the time at which you will come in for a test</h1>
     </div>
     <br>
-    <button class="button" id="getCalendars" style="vertical-align:middle"><span>Get Calendars</span></button>
+    <button class="button" id="getCalendars" style="vertical-align:middle"><span>Load Your Google Calendars</span></button>
 
     <div class="container">
-      Enter Event Name
+      Your Name:
       <input type="text" id="eventName">
       <br>
-      Enter Event Start Time y-m-d h:m:s <br>(9/20/2017 3:00PM = 2017-09-20 15:00:00)
+      Enter The Date And Time You Will Come In <br>Example: 2017-09-20 15:00:00
       <input type="text" id="startTime">
       <br>
-      Enter Event End time y-m-d h:m:s
-      <input type="text" id="endTime">
-      <br>
-      Enter Calendar ID:
+      Which Calendar Are You Adding This To?
       <!-- <input type="text" id="calendarID"> -->
       <div id="calendars"></div>
       <br>
