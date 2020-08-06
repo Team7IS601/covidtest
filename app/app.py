@@ -164,7 +164,7 @@ def index():
     return render_template("index.html")
 
 @app.route("/success")
-def index():
+def success():
     return render_template("success.html")
 
 @app.route("/",methods=['POST'])
