@@ -2,21 +2,20 @@
 <html lang="en">
 
 <head>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
   <meta name="author" content="">
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.8/socket.io.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 
   <title>NJIT Student Self Check for COVID-19 | Calendar</title>
 
   <!-- Bootstrap core CSS -->
   <link href="{{ url_for('static', filename='bootstrap.min.css') }}" rel="stylesheet">
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Custom styles for this template -->
-  <link href="css/business-frontpage.css" rel="stylesheet">
       <link href="{{ url_for('static', filename='business-frontpage.css') }}" rel="stylesheet">
 
 </head>
@@ -26,7 +25,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
-      <a class="navbar-brand" href="#">New Jersey Institute of Technology</a>
+      <a class="navbar-brand" href="https://www.njit.edu">New Jersey Institute of Technology</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -38,13 +37,14 @@
           <li class="nav-item">
             <a class="nav-link" href="/login">Login</a>
           </li>
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/register">Register
-              <span class="sr-only">(current)</span>
+              
             </a>
           </li>
-          <li class="nav-item">
+          <li class="nav-item active">
             <a class="nav-link" href="/Calendar">Calendar</a>
+			  <span class="sr-only">(current)</span>
           </li>
         </ul>
       </div>
@@ -56,25 +56,16 @@
     <div class="container h-100">
       <div class="row h-100 align-items-center">
         <div class="col-lg-12">
-          <h1 class="display-4 text-white mt-5 mb-2">COVID-19 Test Scheduler</h1>
-          <p class="lead mb-5 text-white-50">Please enter a date and time you would like to come in for your test.  Please remember </p>
+          <h1 class="display-4 text-white mt-5 mb-2">COVID-19 Symptom Checker</h1>
+          <p class="lead mb-5 text-white-50">We have determined that you fit the criteria to be tested for COVID-19 at the school medical office.  </p>
         </div>
       </div>
     </div>
   </header>
 
   <!-- Page Content -->
-  <div class="container">
-
-    <div class="row">
-      <div class="col-md-8 mb-5">
-        <h2>Register To Make an Appointment</h2>
-        <hr>     
-		  
-        <p>Please provide us with your name and email address. Create a memorable password to complete registration.
-</p>
-        
-		  <script>
+ 
+	 <script>
   // var socket = io.connect('https://' + document.domain + ':' + location.port)
   var socket = io.connect(document.domain + ':' + location.port)
   socket.on("test", function() {
@@ -115,30 +106,8 @@
       <button class="button" id="submit" style="vertical-align:middle"><span>Submit</span></button>
 
     </div>
-  </div></div>
-<br>
-      
-	  </div></div>
-      <div class="col-md-4 mb-5">
-        
-      </div>
-
-  <!-- /.container -->
-
-  <!-- Footer -->
-  <footer class="py-5 bg-dark">
-    <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; IS601 Summer Group X 2020</p>
-    </div>
-    <!-- /.container -->
-  </footer>
-
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-
-<script>
+  </div>
+  <script>
   //Hide container on page load
   $(".container").hide()
 
@@ -180,6 +149,7 @@
     }
   })
   </script>
+	
 </body>
 
 </html>
