@@ -48,7 +48,21 @@ def calendar():
         return flask.redirect(flask.url_for('oauth2callback'))
     return flask.render_template('calendar.html')
 
-
+#Begin oauth callback route
+@app.route('/oauth2callback')
+def oauth2callback():
+  flow = client.flow_from_clientsecrets(
+      'client_secrets.json',
+      scope='https://www.googleapis.com/auth/calendar',
+      redirect_uri=flask.url_for('oauth2callback', _external=True))
+  if 'code' not in flask.request.args:
+    auth_uri = flow.step1_get_authorize_url()
+    return flask.redirect(auth_uri)
+  else:
+    auth_code = flask.request.args.get('code')
+    credentials = flow.step2_exchange(auth_code)
+    flask.session['credentials'] = credentials.to_json()
+    return flask.redirect(flask.url_for('index'))
 
 ## --------------------- ADAM BEGIN - Register ---------------- ##
 @app.route("/register", methods=["GET", "POST"])
