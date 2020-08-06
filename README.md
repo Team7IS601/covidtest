@@ -21,7 +21,7 @@ https://runnable.com/docker/python/dockerize-your-python-application
 # Here is a link to set up Pycharm
 https://www.jetbrains.com/pycharm/download/#section=windows
 
-# Here is a link to integrate Docker, Python and Git
+# Here is a link to integrate Docker, Pycharm and Git
 https://www.youtube.com/watch?v=5zua74p6vjU&feature=youtu.be
 
 # Feature 1: Symptoms Checklist
