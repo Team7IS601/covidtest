@@ -14,7 +14,6 @@ from googleapiclient import sample_tools
 from rfc3339 import rfc3339
 from dateutil import parser
 
-app = Flask(__name__)
 mysql = MySQL(cursorclass=DictCursor)
 app = Flask(__name__,
             template_folder='templates',
@@ -133,11 +132,11 @@ def register():
         emailaddress = request.form['emailaddress']
         password = request.form['password']
         inputData = (username, emailaddress, password)
-        sql_insert_query = "INSERT INTO tbluserDataImport (username,emailaddress,password) VALUES (%s,%s,%s)"
+        sql_insert_query = """INSERT INTO tbluserDataImport (username,emailaddress,password) VALUES (%s,%s,%s)"""
         cursor = mysql.get_db().cursor()
         cursor.execute(sql_insert_query, inputData)
-
-        return redirect(url_for("Calendar"))
+        mysql.get_db().commit()
+        return redirect(url_for("login"))
     return render_template("register.html")
 
 
