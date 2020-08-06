@@ -6,6 +6,8 @@ Professor Williams
 IS 601 Web Systems Development
 Summer 2020
 
+![Test Image 1()
+
 # Welcome to our app! Below you will find requirements and installation instructions to get started. 
 
 # Requirements:
