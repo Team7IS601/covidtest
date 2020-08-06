@@ -1,4 +1,4 @@
-# "NJIT Student COVID 19 Symptom Checker Web" App
+# NJIT Student COVID 19 Symptom Checker Web App
 Adam Adamson,  
 Michael Maddaloni,   
 Ryan Melink  
@@ -37,4 +37,7 @@ Made by: Ryan Melink
 Description: Calendar feature. On a separate page we will have an event schedular for selecting the time slots that are available to the user.  This will be both an independent feature (i.e., any visitor can browse to it and check for open times) as well as being tied into the onboarding feature.
 
 # Installation Instructions
-1. 
+1. Set up Pycharm with link tutorial
+2. Set up Docker with link tutorial
+3. 
+
